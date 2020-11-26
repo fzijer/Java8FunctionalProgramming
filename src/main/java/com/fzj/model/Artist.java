@@ -26,7 +26,11 @@ public class Artist {
 
   public Artist mock() {
     Artist artist = new Artist();
+    artist.setMembers("Arich" + ThreadLocalRandom.current().nextInt(10));
+    artist.setName("Oracle" +ThreadLocalRandom.current().nextInt(10));
+    artist.setOrigin("USA" +ThreadLocalRandom.current().nextInt(10));
     return  artist;
   }
+
 
 }
