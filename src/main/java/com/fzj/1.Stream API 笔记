@@ -8,7 +8,7 @@
 
 3.如何判断是 惰性求值 还是 及早求值
     stream 会使用 类似于 Filter 丶Count 等方法 , 我们只用 看最终的返回值 是 Stream 就是 惰性求值, 如果返回 一个值 或者空, 则就是 及早求值
-    ①TestStream 中 例4
+    ①TestStreamApi 中 例4
 
 
 常用流操作
@@ -20,4 +20,8 @@
 3.map操作 (惰性求值方法)
     map可以将一种类型的值转换成另外一种类型的值,将一个流中的值准换成新的流
     map中返回的值,不一定需要 和输入的值一样,只需要里面的Lambda 表达式必须是Function 接口的一个实例即可
+
+4.flatMap (惰性求值方法)
+    flatMap 方法 和map 方法中的 Function函数接口一样,只是flatMap 中的Function 的返回值限定为Stream.
+
 
