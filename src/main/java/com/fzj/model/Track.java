@@ -12,6 +12,6 @@ public class Track {
    */
   private String name;
 
-  private long num;
+  private long length;
 
 }

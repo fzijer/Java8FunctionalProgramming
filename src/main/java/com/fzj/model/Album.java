@@ -2,6 +2,8 @@ package com.fzj.model;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Album {
 
@@ -13,7 +15,7 @@ public class Album {
   /**
    *  专辑上所有曲目的列表
    */
-  private Track track;
+  private List<Track> track;
 
   /**
    *  参与本专辑的所有艺术家列表

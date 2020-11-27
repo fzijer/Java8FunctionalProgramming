@@ -1,23 +1,19 @@
 package com.fzj.Stream;
 
 import com.fzj.annotation.Comment;
+import com.fzj.model.Album;
 import com.fzj.model.Artist;
 import com.fzj.model.Track;
-import com.sun.org.apache.xpath.internal.functions.Function;
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import lombok.val;
 import org.assertj.core.util.Lists;
-import org.assertj.core.util.Maps;
-import org.w3c.dom.ls.LSOutput;
 
-import javax.crypto.spec.PSource;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Vector;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toSet;
 
 @Comment("测试java8中流的操作")
 public class TestStreamApi {
@@ -73,36 +69,51 @@ public class TestStreamApi {
      * 6.map操作  */
     System.out.println("=============map============================map==========================map====================");
     //List<String> collected2 = Stream.of("a","b","hello","java8").map(v->v.toUpperCase()).collect(Collectors.toList());
-    Stream.of("a","b","hello","java8").map(v->v.toUpperCase()).forEach(v-> System.out.println(v));
+    Stream.of("a", "b", "hello", "java8").map(v -> v.toUpperCase()).forEach(v -> System.out.println(v));
 
 
     /**
      * 7. fliter 操作 */
     System.out.println("=============filter============================filter==========================filter====================");
-    Stream.of("a","b","c","java8").filter(v->v.equals("a")).forEach(v-> System.out.println(v));
+    Stream.of("a", "b", "c", "java8").filter(v -> v.equals("a")).forEach(v -> System.out.println(v));
 
 
     /**
      * 8.flatMap */
     System.out.println("=============flatMap============================flatMap==========================flatMap====================");
-    Stream.of(collected,collected).flatMap(v ->{
+    Stream.of(collected, collected).flatMap(v -> {
       return v.stream();
-    }).forEach(v-> System.out.println(v));
+    }).forEach(v -> System.out.println(v));
 
-    Stream.of(collected,collected).map(v->v.size()).forEach(v-> System.out.println(v));
+    Stream.of(collected, collected).map(v -> v.size()).forEach(v -> System.out.println(v));
 
     /**
      * 9.max & min */
     System.out.println("=============max============================min==========================max====================");
-    List<Track> trackList =Lists.newArrayList(new Track("Bakal",524),new Track("Violets for your Furs",378),new Track("Time Was",451));
-    val terst=trackList.stream().min(Comparator.comparing(v->v.getNum())).get();
+    List<Track> trackList = Lists.newArrayList(new Track("Bakal", 524), new Track("Violets for your Furs", 378), new Track("Time Was", 451));
+    val terst = trackList.stream().min(Comparator.comparing(v -> v.getLength())).get();
     System.out.println(terst);
 
 
-
-
-
+    /**
+     * 10. Reduce   使用Reduce 求和*/
+    System.out.println("=============Reduce============================Reduce==========================Reduce====================");
+    int count2 = Stream.of(1, 2, 3).reduce(0, (x, y) -> x + y);
+    System.out.println(count2);
 
 
   }
+
+
+  /**
+   * 11.重构代码
+   */
+  public Set<String> findLongTracks(List<Album> albums) {
+    return albums.stream().flatMap(album -> album.getTrack().stream())
+            .filter(v -> v.getLength() > 60)
+            .map(v2 -> v2.getName())
+            .collect(Collectors.toSet());
+  }
 }
+
+

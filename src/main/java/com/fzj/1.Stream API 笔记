@@ -10,18 +10,34 @@
     stream 会使用 类似于 Filter 丶Count 等方法 , 我们只用 看最终的返回值 是 Stream 就是 惰性求值, 如果返回 一个值 或者空, 则就是 及早求值
     ①TestStreamApi 中 例4
 
+4.Optional对象
+    Optionnal 对象代表一个可能存在的值,如果Stream 为空的话,那么该值就不存在,如果该值部位空， 使用get() 方法可以取出Optional对象中的值
+
 
 常用流操作
 1. Stream.of("a","b","c")   使用 Stream.of() 方法 , 将集合 转成 Stream 对象.
+
+
 2. collect(Collectors.toList()) 方法
    对Stream 使用许多操作后,可能得到的是惰性求值, 如果是惰性求值的话,并不能对结果进行输出等操作, 需要使用及早求值方法 得到及早求值,除了 Count方法 外 还有 collect(Collectors.toList())
    来完成 及早求值的转换.
 
-3.map操作 (惰性求值方法)
+
+3.map操作 (惰性求值方法)        <R> Stream<R> map(Function<? super T, ? extends R> mapper);
     map可以将一种类型的值转换成另外一种类型的值,将一个流中的值准换成新的流
     map中返回的值,不一定需要 和输入的值一样,只需要里面的Lambda 表达式必须是Function 接口的一个实例即可
 
+
 4.flatMap (惰性求值方法)
     flatMap 方法 和map 方法中的 Function函数接口一样,只是flatMap 中的Function 的返回值限定为Stream.
+
+
+5.max min  (及时求值方法 返回  Optional<T> 类型)   Optional<T> min(Comparator<? super T> comparator);
+     在max 方法中提供一个Comparator.comparing 静态方法, "comparing" 方法接受 另一个函数 并返回另一个函数.
+
+
+6. Reduce (及时求值方法 返回 T 类型 )    T reduce(T identity, BinaryOperator<T> accumulator);
+      T identity 为初始化 累加的初始值, T也作为 最总的返回类型 丶  BinaryOperator<T> accumulator
+
 
 
