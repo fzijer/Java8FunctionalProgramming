@@ -37,7 +37,7 @@
 
 
 6. Reduce (及时求值方法 返回 T 类型 )    T reduce(T identity, BinaryOperator<T> accumulator);
-      T identity 为初始化 累加的初始值, T也作为 最总的返回类型 丶  BinaryOperator<T> accumulator
+      T identity 为初始化 累加的初始值, T也作为 最总的返回类型 丶  BinaryOperator<T> accumulator 为累加器
 
 
 

@@ -101,7 +101,6 @@ public class TestStreamApi {
     int count2 = Stream.of(1, 2, 3).reduce(0, (x, y) -> x + y);
     System.out.println(count2);
 
-
   }
 
 
