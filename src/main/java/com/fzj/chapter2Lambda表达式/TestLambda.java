@@ -14,19 +14,13 @@ public class TestLambda {
     Runnable noArguments =()-> System.out.println("Hello World");
 
 
-    //
     ActionListener oneArgument =event ->{
       System.out.println("Hello World");
     }  ;
 
-
-    BinaryOperator<Long> add = (x, y) -> {
-      return x + y;
-    } ;
-
+    BinaryOperator<Long> add = (x, y) -> x+y;
 
     Predicate<Integer> atLeast5 = x -> x > 5;
-
 
     BinaryOperator<Long> addLongs = (x, y) -> x + y;
 

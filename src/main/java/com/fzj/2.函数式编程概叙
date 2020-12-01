@@ -5,6 +5,6 @@
     函数接口指仅具有单个抽象方法的接口，用来表示Lambda表达式的类型
 
 lambda表达式：
-    Lambda表达式是一个匿名方法，将行为像数据一样进行传递。
-    Lambda表达式的常见结构：BinaryOperator<Integer> add = (x, y) → x + y。
+    Lambda表达式是一个匿名方法，将行为像数据一样进行传递
+    Lambda表达式的常见结构：BinaryOperator<Integer> add = (x, y) → x + y
     函数接口指仅具有单个抽象方法的接口，用来表示Lambda表达式的类型
