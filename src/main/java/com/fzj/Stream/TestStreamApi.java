@@ -46,7 +46,7 @@ public class TestStreamApi {
      * 4. 测试惰性求值方法 filter()*/
     System.out.println("========================================================================================");
     artistList.stream().filter(v -> {
-      System.out.println(v.getName());
+      System.out.println(v.getName());      //并不会打印出来
       return v.getOrigin().equals("USA1");
     });
 
@@ -100,6 +100,8 @@ public class TestStreamApi {
     System.out.println("=============Reduce============================Reduce==========================Reduce====================");
     int count2 = Stream.of(1, 2, 3).reduce(0, (x, y) -> x + y);
     System.out.println(count2);
+
+
 
   }
 

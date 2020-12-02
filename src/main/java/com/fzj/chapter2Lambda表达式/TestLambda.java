@@ -3,6 +3,8 @@ package com.fzj.chapter2Lambda表达式;
 import java.awt.event.ActionListener;
 import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 /**
  * 编写Lambda表达式的不同形式*/
@@ -18,13 +20,15 @@ public class TestLambda {
       System.out.println("Hello World");
     }  ;
 
+
     BinaryOperator<Long> add = (x, y) -> x+y;
 
     Predicate<Integer> atLeast5 = x -> x > 5;
 
     BinaryOperator<Long> addLongs = (x, y) -> x + y;
 
+    boolean greaterThanZero = Stream.of(-1, -2, 0, -5).anyMatch(num -> num > 0);
 
-
+    Stream<Integer> onlyTwoNumbers = Stream.of(-1, -2, 0, -5).limit(2);
   }
 }

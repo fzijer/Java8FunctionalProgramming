@@ -1,0 +1,21 @@
+1.java8 另一个变化就是引入了“默认方法” 和 “接口的静态方法”
+
+2.从类库角度来看,在使用内置的Supplier函数 接口时, 他只有一个get 方法 通过调用 get方法将结果传递给其他方法，
+  不同的接口函数中有不同的方法,如果使用Predicate 就应该调用test方法,如果使用Function 就应该调用 apply方法
+
+
+3.高阶函数
+    高阶函数是指接受另外一个函数作为参数，或返回一个函数的函数。什么样的参数是函数类型的参数？
+    要看该参数是否是一个函数式接口，函数式接口只会有一个方法，会使用 @FunctionalInterface 这个注解来修饰。
+    ①Stream 的 limit 是高阶函数吗？是的。因为它的返回值是一个Stream。
+      Stream<Integer> onlyTwoNumbers = Stream.of(-1, -2, 0, -5).limit(2);
+    ②Stream 的 anyMatch 是高阶函数吗？是的。因为它的参数接收的是另外一个函数：Predicate。
+      boolean greaterThanZero = Stream.of(-1, -2, 0, -5).anyMatch(num -> num > 0);
+
+
+4.基本类型
+    在Java8中仅对 整型丶长整型丶双 浮点型做了特殊处理
+    CSDN:   https://blog.csdn.net/Mark_Chao/article/details/80834523
+    ①mapToInt
+    ②mapToDouble
+    ③mapToLong
