@@ -14,8 +14,22 @@
 
 
 4.基本类型
-    在Java8中仅对 整型丶长整型丶双 浮点型做了特殊处理
+    在Java8中仅对 整型丶长整型丶双浮点型做了特殊处理
     CSDN:   https://blog.csdn.net/Mark_Chao/article/details/80834523
-    ①mapToInt
-    ②mapToDouble
-    ③mapToLong
+
+    Stream中 有如下三种Stream的装箱操作
+
+        ①mapToInt           IntStream mapToInt(ToIntFunction<? super T> mapper);            //传入ToIntFunction   得到 IntStream 类型
+            将数据转成IntStream类型,避免装箱操作, IntStream 中有
+            map   IntStream map(IntUnaryOperator mapper);           //传入 IntUnaryOperator 得到IntStream类型
+            sum 丶
+            summaryStatistics 丶
+            mapToObj   <U> Stream<U> mapToObj(IntFunction<? extends U> mapper); 等方法         //传入IntFunction  得到一个装箱后的Stream  Stream<Long>
+
+
+
+        ②mapToDouble        DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper);
+        ③mapToLong          LongStream mapToLong(ToLongFunction<? super T> mapper);
+
+
+5.重载解析

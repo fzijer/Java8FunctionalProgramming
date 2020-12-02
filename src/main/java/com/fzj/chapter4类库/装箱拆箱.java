@@ -10,6 +10,9 @@ public class 装箱拆箱 {
     int sum = Stream.of(1, 2, 3).mapToInt(x-> Integer.parseInt(x.toString())).sum();
     System.out.println(sum);
 
+    Stream.of(1, 2, 3).mapToInt(x-> Integer.parseInt(x.toString())).mapToObj(x->x);
+
+    System.out.println(Stream.of(1, 2, 3).mapToInt(x -> Integer.parseInt(x.toString())).summaryStatistics());
 
   }
 }
