@@ -1,0 +1,14 @@
+之前使用的Stream中的一些map filter reduce等操作是Java8对集合类的改进,现在我们再进一步学习
+
+
+
+1.方法引用
+     在使用lambda表达式时可以轻松使用已有代码
+     表达式: artist -> artist.getName()   使用 ”方法引用“ 就可以写成“Artist::getName”
+     表达式：(name,telpone) -> new User(name,telpone)  使用 “方法引用” 就可以写成 “User::new”
+
+
+
+2.元素顺序
+
+
