@@ -26,10 +26,15 @@
             summaryStatistics 丶
             mapToObj   <U> Stream<U> mapToObj(IntFunction<? extends U> mapper); 等方法         //传入IntFunction  得到一个装箱后的Stream  Stream<Long>
 
-
-
         ②mapToDouble        DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper);
         ③mapToLong          LongStream mapToLong(ToLongFunction<? super T> mapper);
 
 
 5.重载解析
+    Java中可以重载方法,造成多个方法有相同的方法名,但是签名不一样,但是在推断参数类型时会带来问题.应为系统可能会推出多种类型,
+    什么是重载解析呢？ 我们要解释重载解析就要先了解重载。当我们对同一个函数名写了不同参数列表的版本之后，编译器会生成这个函数
+    的不同重载版本。那么当我们调用这个函数的时候，编译器就会子自动根据实参的参数类型来判断到底调用的是哪个版本的函数。那么编译
+    器选取最合适的函数版本的这一个过程就被称为重载解析。
+
+    CSDN:  https://blog.csdn.net/y1196645376/article/details/52860006
+    Lambda表达式的类型就是对应的函数接口类型
